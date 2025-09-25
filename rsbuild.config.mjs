@@ -1,8 +1,9 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginFoo } from "./src/plugins/pluginFoo.js";
 
 export default defineConfig({
-  plugins: [pluginReact()],
+  plugins: [pluginReact(), pluginFoo({ message: "Dev server started!" })],
   server: {
     port: 3000,
     proxy: {
@@ -14,6 +15,11 @@ export default defineConfig({
           "^/api": "",
         },
       },
+    },
+  },
+  source: {
+    alias: {
+      "@": "./src",
     },
   },
 });
