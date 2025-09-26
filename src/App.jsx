@@ -40,13 +40,19 @@ const App = () => {
     setFormStatus(type);
     setIsModalOpen(true);
   }
-  if (error) return "An error has occurred.";
-  if (isLoading) return "Loading...";
+  // if (error) return "An error has occurred.";
+  // if (isLoading) return "Loading...";
 
   return (
     <>
       <div className="contianer">
-        <MyModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} formStatus={formStatus} data={rawData} refreshData={mutate} />
+        <MyModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          formStatus={formStatus}
+          data={rawData}
+          refreshData={mutate}
+        />
         <div className="header">
           <h2> TASK OA管理系统</h2>
           <Button type="primary" onClick={() => openDialog("add")}>
